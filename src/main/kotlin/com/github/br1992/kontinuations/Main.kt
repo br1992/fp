@@ -1,3 +1,5 @@
+package com.github.br1992.kontinuations
+
 import java.math.BigInteger
 import kotlin.time.DurationUnit
 import kotlin.time.ExperimentalTime

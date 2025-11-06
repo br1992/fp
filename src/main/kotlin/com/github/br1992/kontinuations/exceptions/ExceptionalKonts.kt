@@ -1,10 +1,8 @@
-package exceptions
+package com.github.br1992.kontinuations.exceptions
 
-import com.sun.net.httpserver.Authenticator
 import kotlin.reflect.KClass
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
-import kotlin.time.Instant
 
 object ExceptionalKonts {
 

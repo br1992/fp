@@ -1,9 +1,8 @@
-package asynk
+package com.github.br1992.kontinuations.asynk
 
-import simple.Kont
-import simple.SimpleKont
+import com.github.br1992.kontinuations.simple.Kont
+import com.github.br1992.kontinuations.simple.SimpleKont
 import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.ConcurrentSkipListSet
 
 data class AsynkSkope(
     val engine: AsynkEngine

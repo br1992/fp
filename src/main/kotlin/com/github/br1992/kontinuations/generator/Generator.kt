@@ -1,6 +1,6 @@
-package generator
+package com.github.br1992.kontinuations.generator
 
-import simple.Kont
+import com.github.br1992.kontinuations.simple.Kont
 
 data class Generator<T>(
     val block: (GeneratorScope<T>) -> Unit

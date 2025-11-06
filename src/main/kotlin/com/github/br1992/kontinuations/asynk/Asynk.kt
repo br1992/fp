@@ -1,6 +1,6 @@
-package asynk
+package com.github.br1992.kontinuations.asynk
 
-import simple.Kont
+import com.github.br1992.kontinuations.simple.Kont
 import java.util.concurrent.ConcurrentHashMap
 
 data class ParallelKont(

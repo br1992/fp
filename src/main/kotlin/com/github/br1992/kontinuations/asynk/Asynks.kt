@@ -1,11 +1,8 @@
-package asynk
+package com.github.br1992.kontinuations.asynk
 
-import kotlinx.coroutines.future.asDeferred
-import simple.Kont
-import simple.SimpleKont
-import java.util.concurrent.CompletableFuture
+import com.github.br1992.kontinuations.simple.Kont
+import com.github.br1992.kontinuations.simple.SimpleKont
 import java.util.concurrent.Executors
-import java.util.concurrent.Future
 import java.util.concurrent.ScheduledThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
@@ -49,7 +46,7 @@ object Asynks {
 
 }
 
-//fun main() {
+//fun com.github.br1992.kontinuations.main() {
 //    val skopeEventual = AsynkSkope.withScope(Asynks.engine) {
 //        launch {
 //            it.resume(Unit)
@@ -62,7 +59,7 @@ object Asynks {
 //}
 
 //@OptIn(ExperimentalTime::class)
-//fun main() {
+//fun com.github.br1992.kontinuations.main() {
 //    println("Starting Asynk")
 //
 //    Asynks.getDateButSlow(SimpleKont {

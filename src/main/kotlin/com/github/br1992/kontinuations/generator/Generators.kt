@@ -1,6 +1,6 @@
-package generator
+package com.github.br1992.kontinuations.generator
 
-import simple.SimpleKont
+import com.github.br1992.kontinuations.simple.SimpleKont
 
 object Generators {
 

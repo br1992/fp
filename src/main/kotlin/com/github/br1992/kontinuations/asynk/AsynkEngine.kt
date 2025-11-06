@@ -1,8 +1,8 @@
-package asynk
+package com.github.br1992.kontinuations.asynk
 
+import com.github.br1992.kontinuations.simple.Kont
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
-import simple.Kont
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Future

@@ -1,6 +1,6 @@
-package asynk
+package com.github.br1992.kontinuations.asynk
 
-import simple.SimpleKont
+import com.github.br1992.kontinuations.simple.SimpleKont
 
 interface Eventual<T> {
 

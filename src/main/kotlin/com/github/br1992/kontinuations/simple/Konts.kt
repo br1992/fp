@@ -1,4 +1,4 @@
-package simple
+package com.github.br1992.kontinuations.simple
 
 object Konts {
 
