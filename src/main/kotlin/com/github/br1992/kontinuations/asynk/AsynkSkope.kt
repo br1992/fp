@@ -1,15 +1,13 @@
-package com.github.br1992.kontinuations.asynk
+package com.github.br1992.asynk
 
-import com.github.br1992.kontinuations.simple.Kont
-import com.github.br1992.kontinuations.simple.SimpleKont
+import com.github.br1992.simple.Kont
+import com.github.br1992.simple.SimpleKont
 import java.util.concurrent.ConcurrentHashMap
 
 data class AsynkSkope(
     val engine: AsynkEngine
 ) {
 
-//    private val kontsStatuses = mutableMapOf<SimpleKont<*>, Any?>()
-//    private val outstandingKonts = 0
     private val eventuals = ConcurrentHashMap<Eventual<*>, Unit>()
 
     fun <T> launch(builder: (Kont<T>) -> Unit): Eventual<T> {

@@ -1,4 +1,4 @@
-package com.github.br1992.kontinuations
+package com.github.br1992
 
 import java.lang.IllegalStateException
 import kotlin.coroutines.*
@@ -28,7 +28,7 @@ object Continuations {
                     resume!!.resume(Unit)
                 } else {
                     suspend { genFunc(generator) }.startCoroutine(Continuation(EmptyCoroutineContext) {
-                        resume = Continuation(EmptyCoroutineContext) { throw IllegalStateException("Already finished consuming com.github.br1992.kontinuations.generator") }
+                        resume = Continuation(EmptyCoroutineContext) { throw IllegalStateException("Already finished consuming com.github.br1992.generator") }
                         send.resume(Empty)
                     })
                 }

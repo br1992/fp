@@ -1,7 +1,7 @@
-package com.github.br1992.kontinuations.asynk
+package com.github.br1992.asynk
 
-import com.github.br1992.kontinuations.simple.Kont
-import com.github.br1992.kontinuations.simple.SimpleKont
+import com.github.br1992.simple.Kont
+import com.github.br1992.simple.SimpleKont
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledThreadPoolExecutor
 import java.util.concurrent.TimeUnit
@@ -16,7 +16,7 @@ object Asynks {
     val executor = Executors.newScheduledThreadPool(4).also {
         (it as ScheduledThreadPoolExecutor).removeOnCancelPolicy = true
     }
-    val engine = AsynkEngine(Executors.newWorkStealingPool(8))
+    val engine = AsynkEngine(Executors.newWorkStealingPool())
 
     fun getDateButSlow(kont: Kont<Instant>) {
         val eventual = SimpleEventual<Instant>(engine)
@@ -45,35 +45,6 @@ object Asynks {
     }
 
 }
-
-//fun com.github.br1992.kontinuations.main() {
-//    val skopeEventual = AsynkSkope.withScope(Asynks.engine) {
-//        launch {
-//            it.resume(Unit)
-//        }
-//    }
-//
-//    Asynks.engine.await(skopeEventual, SimpleKont {
-//        println("Finished")
-//    })
-//}
-
-//@OptIn(ExperimentalTime::class)
-//fun com.github.br1992.kontinuations.main() {
-//    println("Starting Asynk")
-//
-//    Asynks.getDateButSlow(SimpleKont {
-//        println("Got date: ${it}")
-//    })
-//
-//    Asynks.getIntButSlow(SimpleKont {
-//        println("Got int: ${it}")
-//        Asynks.engine.close()
-//        Asynks.executor.shutdown()
-//    })
-//
-//    println("Ending Asynk")
-//}
 
 @OptIn(ExperimentalTime::class)
 fun main() {

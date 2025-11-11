@@ -1,4 +1,4 @@
-package com.github.br1992.kontinuations.exceptions
+package com.github.br1992.exceptions
 
 import kotlin.reflect.KClass
 import kotlin.time.Clock
@@ -62,5 +62,7 @@ object ExceptionalKonts {
 }
 
 fun main() {
+//    ExceptionalKonts.testUnhandledError()
+//    ExceptionalKonts.testHandledStringError()
     ExceptionalKonts.testNoError()
 }

@@ -1,4 +1,4 @@
-package com.github.br1992.kontinuations
+package com.github.br1992
 
 import java.math.BigInteger
 import kotlin.time.DurationUnit

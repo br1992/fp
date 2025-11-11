@@ -1,6 +1,6 @@
-package com.github.br1992.kontinuations.asynk
+package com.github.br1992.asynk
 
-import com.github.br1992.kontinuations.simple.SimpleKont
+import com.github.br1992.simple.SimpleKont
 
 interface Eventual<T> {
 
@@ -10,7 +10,7 @@ interface Eventual<T> {
 
     fun isFinished(): Boolean
 
-    fun await(engine: AsynkEngine, kont: SimpleKont<T>)
+    fun await(kont: SimpleKont<T>)
 
     companion object {
         enum class Status {
@@ -42,7 +42,7 @@ class SimpleEventual<T>(
         return status == Eventual.Companion.Status.FINISHED
     }
 
-    override fun await(engine: AsynkEngine, kont: SimpleKont<T>) {
+    override fun await(kont: SimpleKont<T>) {
         engine.await(this, kont)
     }
 

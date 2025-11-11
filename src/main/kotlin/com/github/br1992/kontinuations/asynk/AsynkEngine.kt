@@ -1,6 +1,6 @@
-package com.github.br1992.kontinuations.asynk
+package com.github.br1992.asynk
 
-import com.github.br1992.kontinuations.simple.Kont
+import com.github.br1992.simple.Kont
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
 import java.util.concurrent.ConcurrentHashMap
@@ -22,24 +22,29 @@ data class AsynkEngine(
     }
 
     fun <T> await(awaitee: Eventual<T>, kont: Kont<T>) {
-        if (awaitee.isFinished()) {
-            kont.resume(awaitee.value())
+        synchronized(awaitee) {
+            if (awaitee.isFinished()) {
+                kont.resume(awaitee.value())
+            }
+
+            awaitList.compute(awaitee, { _, ks ->
+                if (ks != null) {
+                    ks.add(kont)
+                } else {
+                    persistentListOf(kont)
+                }
+            })
         }
 
-        awaitList.compute(awaitee, { _, ks ->
-            if (ks != null) {
-                ks.add(kont)
-            } else {
-                persistentListOf(kont)
-            }
-        })
     }
 
     internal fun <T> resolve(eventual: Eventual<T>) {
-        val konts = awaitList.remove(eventual)
+        synchronized(eventual) {
+            val konts = awaitList.remove(eventual)
 
-        konts?.forEach { k ->
-            executorService.submit { (k as Kont<Any>).resume(eventual.value() as Any) }
+            konts?.forEach { k ->
+                executorService.submit { (k as Kont<Any>).resume(eventual.value() as Any) }
+            }
         }
     }
 

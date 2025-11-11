@@ -1,6 +1,6 @@
-package com.github.br1992.kontinuations.exceptions
+package com.github.br1992.exceptions
 
-import com.github.br1992.kontinuations.simple.Kont
+import com.github.br1992.simple.Kont
 import kotlin.reflect.KClass
 
 interface ExceptionalKont<T>: Kont<KontResult<T, Any>> {}

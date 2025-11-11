@@ -1,4 +1,4 @@
-package com.github.br1992.kontinuations.simple
+package com.github.br1992.simple
 
 object Konts {
 
@@ -24,7 +24,6 @@ object Konts {
 
         println("End")
     }
-
 
 }
 
